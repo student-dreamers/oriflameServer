@@ -19,13 +19,25 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
             res.status(404).send(`Category do not exists.`);
         } else {
             const products = await Product.query()
-                //.eager('category')
-                //.eager('productIngredients')
                 .eager('[category,productIngredients.ingredient]')
                 .where('category_id', category.id)
+                //.joinRelation('productIngredients')
+                /*.whereNot(function() {
+                    this.whereIn('productIngredients.ingredient_name', filterIngredients);
+                })*/
                 .select();
 
-            res.status(200).json(products.map(cleanupResponse));
+            res.status(200).json(
+                products
+                    .filter((product: any) => {
+                        //todo this should be done by sql query not aplication
+                        for (const { ingredient_name } of product.productIngredients) {
+                            if ((filterIngredients || []).includes(ingredient_name)) return false;
+                        }
+                        return true;
+                    })
+                    .map(cleanupResponse),
+            );
         }
     } catch (error) {
         next(error);
