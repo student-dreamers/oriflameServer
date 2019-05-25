@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test the API</title>
+    </head>
+    <body>
+        <script type="module">
+            import { api } from './Api.js';
+
+            main();
+
+            async function main() {
+                console.log('getIngredientes', await api.getIngredientes());
+                console.log('getCategories', await api.getCategories());
+                console.log('getProductByUuidOrEan', await api.getProductByUuidOrEan('test'));
+                console.log('getCategoryProducts', await api.getCategoryProducts('test'));
+                console.log('getCategoryProducts', await api.getCategoryProducts('test', ['SUGAR']));
+                console.log('getCategoryProducts', await api.getCategoryProducts('test', ['SALT']));
+            }
+        </script>
+    </body>
+</html>
