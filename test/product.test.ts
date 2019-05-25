@@ -18,6 +18,7 @@ export default describe('Product route', () => {
             .get(`/products/${TEST_PRODUCT_EAN}`)
             .expect(200)
             .expect(({ body }) => {
+                if ('id' in body) throw new Error(`Id is private`);
                 if (!('name' in body)) throw new Error(`Missing name`);
                 if (!('uuid' in body)) throw new Error(`Missing uuid`);
                 if (!('url_image' in body)) throw new Error(`Missing url_image`);

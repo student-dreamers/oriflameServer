@@ -16,6 +16,7 @@ export default describe('Products route', () => {
                 if (!(body instanceof Array)) throw new Error(`Not Array`);
                 //todo check score order
                 for (const item of body) {
+                    if ('id' in item) throw new Error(`Id is private`);
                     if (!('name' in item)) throw new Error(`Missing name`);
                     if (!('uuid' in item)) throw new Error(`Missing uuid`);
                     if (!('score' in item)) throw new Error(`Missing score`);
@@ -23,17 +24,10 @@ export default describe('Products route', () => {
                 }
             }));
 
-    it('should not get products from a category and filter some non-existing ingredients', () =>
-        request(app)
-            .get(
-                `/categories/${TEST_CATEGORY_UUID}/products?filterIngredients=${TEST_NONEXISTING_UUID},${TEST_INGREDIENT_UUID}`,
-            )
-            .expect(404));
-
     it('should get products from a category and filter some ingredients', () =>
         request(app)
             .get(
-                `/categories/${TEST_CATEGORY_UUID}/products?filterIngredients=${TEST_INGREDIENT_UUID},${TEST_INGREDIENT_UUID}`,
+                `/categories/${TEST_CATEGORY_UUID}/products?filterIngredients[]=${TEST_INGREDIENT_UUID}&filterIngredients[]=${TEST_INGREDIENT_UUID}`,
             )
             .expect(200));
     //todo check if the ingredient is not in list of products

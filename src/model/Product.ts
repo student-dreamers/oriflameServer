@@ -15,6 +15,7 @@ export class Product extends AbstractModel {
     url_image: string;
     url_shop: string;
     price: number;
+    score = 1; //todo mock
 
     constructor(raw: Partial<Product> = {}) {
         super();
@@ -22,12 +23,12 @@ export class Product extends AbstractModel {
     }
 
     static relationMappings: RelationMappings = {
-        Category: {
+        category: {
             relation: Model.HasOneRelation,
             modelClass: 'Category',
             join: {
-                from: 'data_product.category_id',
-                to: 'category.id',
+                from: 'data_category.id',
+                to: 'data_product.category_id',
             },
         },
     };

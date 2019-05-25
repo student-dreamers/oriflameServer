@@ -9,6 +9,7 @@ export default describe('Categories route', () => {
             .expect(({ body }) => {
                 if (!(body instanceof Array)) throw new Error(`Not Array`);
                 for (const item of body) {
+                    if ('id' in item) throw new Error(`Id is private`);
                     if (!('name' in item)) throw new Error(`Missing name`);
                     if (!('uuid' in item)) throw new Error(`Missing uuid`);
                     if (!('url_icon' in item)) throw new Error(`Missing url_icon`);
