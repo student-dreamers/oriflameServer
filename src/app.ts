@@ -28,7 +28,7 @@ export function createApp(): express.Express {
     app.use(express.static(path.join(__dirname, '..', 'static')));
 
     app.get(['/', '/about'], aboutRouteHandler);
-    app.get('/products', productRouteHandler);
+    app.get('/products/:productUuidOrEan', productRouteHandler);
 
     app.get('/categories', categoriesRouteHandler);
     app.get('/categories/:categoryUuid/products', productsRouteHandler);

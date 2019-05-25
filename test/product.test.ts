@@ -24,6 +24,6 @@ export default describe('Product route', () => {
                 if (!('uuid' in body)) throw new Error(`Missing uuid`);
                 if (!('url_image' in body)) throw new Error(`Missing url_image`);
                 if (!('price' in body)) throw new Error(`Missing price`);
-                if (!('ingrediences' in body)) throw new Error(`Missing ingrediences`);
+                if (!('productIngredients' in body)) throw new Error(`Missing productIngredients`);
             }));
 });
