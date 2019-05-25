@@ -17,6 +17,7 @@ export default describe('Products route', () => {
                 //todo check score order
                 for (const item of body) {
                     if ('id' in item) throw new Error(`Id is private`);
+                    if ('category_id' in item) throw new Error(`category_id is private`);
                     if (!('name' in item)) throw new Error(`Missing name`);
                     if (!('uuid' in item)) throw new Error(`Missing uuid`);
                     if (!('score' in item)) throw new Error(`Missing score`);

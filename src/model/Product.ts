@@ -27,8 +27,16 @@ export class Product extends AbstractModel {
             relation: Model.HasOneRelation,
             modelClass: 'Category',
             join: {
-                from: 'data_category.id',
-                to: 'data_product.category_id',
+                from: 'data_product.category_id',
+                to: 'data_category.id',
+            },
+        },
+        productIngredients: {
+            relation: Model.HasManyRelation,
+            modelClass: 'ProductIngredient',
+            join: {
+                from: 'data_product.id',
+                to: 'data_product_ingredient.product_id',
             },
         },
     };

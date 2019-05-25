@@ -20,7 +20,8 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
         } else {
             const products = await Product.query()
                 .eager('category')
-                .eager('ingredients')
+                .eager('productIngredients')
+                .eager('productIngredients.ingredient')
                 .where('category_id', category.id)
                 .select();
 
