@@ -31,7 +31,7 @@ export function createApp(): express.Express {
     app.get('/products', productRouteHandler);
 
     app.get('/categories', categoriesRouteHandler);
-    app.get('/categories/:category/', productsRouteHandler);
+    app.get('/categories/:categoryUuid/products', productsRouteHandler);
 
     return app;
 }

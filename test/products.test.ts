@@ -3,12 +3,12 @@ import { app } from '../src/app';
 import { TEST_CATEGORY_UUID, TEST_NONEXISTING_UUID, TEST_INGREDIENT_UUID } from '../src/config';
 
 export default describe('Products route', () => {
-    it('should not get products of non-existing category', () =>
+    it('should not get products from non-existing category', () =>
         request(app)
-            .get(`/products/${TEST_NONEXISTING_UUID}`)
+            .get(`/categories/${TEST_NONEXISTING_UUID}/products`)
             .expect(404));
 
-    it('should get products of a category', () =>
+    it('should get products from a category', () =>
         request(app)
             .get(`/categories/${TEST_CATEGORY_UUID}/products`)
             .expect(200)
@@ -23,14 +23,14 @@ export default describe('Products route', () => {
                 }
             }));
 
-    it('should not get products of a category and filter some non-existing ingredients', () =>
+    it('should not get products from a category and filter some non-existing ingredients', () =>
         request(app)
             .get(
                 `/categories/${TEST_CATEGORY_UUID}/products?filterIngredients=${TEST_NONEXISTING_UUID},${TEST_INGREDIENT_UUID}`,
             )
             .expect(404));
 
-    it('should get products of a category and filter some ingredients', () =>
+    it('should get products from a category and filter some ingredients', () =>
         request(app)
             .get(
                 `/categories/${TEST_CATEGORY_UUID}/products?filterIngredients=${TEST_INGREDIENT_UUID},${TEST_INGREDIENT_UUID}`,
