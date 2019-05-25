@@ -1,10 +1,8 @@
 import { app } from './app';
 import { PORT } from './config';
-import { logger } from './tools/logger';
+import { logger } from './utils/logger';
 
 app.listen(PORT, () => {
-    console.log(
-        `█████████████████████████████████████████████████████████████████████`,
-    );
+    console.log(`█████████████████████████████████████████████████████████████████████`);
     logger.info(`API is running at http://localhost:${PORT}`);
 });

@@ -4,10 +4,11 @@ export const PUBLIC_URL = getConfigValue('PUBLIC_URL', 'string'),
     DB_PASSWORD = getConfigValue('DB_PASSWORD', 'string'),
     DB_NAME = getConfigValue('DB_NAME', 'string'),
     PORT = getConfigValue('PORT', 'number'),
-    TEST_EXISTING_PRODUCT_UUID = getConfigValue('TEST_EXISTING_PRODUCT_UUID', 'string'),
-    TEST_EXISTING_PRODUCT_EAN = getConfigValue('TEST_EXISTING_PRODUCT_EAN', 'string'),
+    TEST_PRODUCT_UUID = getConfigValue('TEST_PRODUCT_UUID', 'string'),
+    TEST_PRODUCT_EAN = getConfigValue('TEST_PRODUCT_EAN', 'string'),
     TEST_NONEXISTING_UUID = getConfigValue('TEST_NONEXISTING_UUID', 'string'),
-    TEST_EXISTING_CATEGORY_UUID = getConfigValue('TEST_EXISTING_CATEGORY_UUID', 'string');
+    TEST_CATEGORY_UUID = getConfigValue('TEST_CATEGORY_UUID', 'string'),
+    TEST_INGREDIENT_UUID = getConfigValue('TEST_INGREDIENT_UUID', 'string');
 
 function getConfigValue(key: string, type: 'string'): string;
 function getConfigValue(key: string, type: 'number'): number;

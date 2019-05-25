@@ -9,6 +9,7 @@ import { initDBConnection } from './knex';
 import { productRouteHandler } from './routes/product';
 import { aboutRouteHandler } from './routes/about';
 import { categoriesRouteHandler } from './routes/categories';
+import { productsRouteHandler } from './routes/products';
 
 export const app = createApp();
 
@@ -30,6 +31,7 @@ export function createApp(): express.Express {
     app.get('/products', productRouteHandler);
 
     app.get('/categories', categoriesRouteHandler);
+    app.get('/categories/:category/', productsRouteHandler);
 
     return app;
 }
