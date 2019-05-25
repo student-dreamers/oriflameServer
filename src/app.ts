@@ -10,6 +10,7 @@ import { productRouteHandler } from './routes/product';
 import { aboutRouteHandler } from './routes/about';
 import { categoriesRouteHandler } from './routes/categories';
 import { productsRouteHandler } from './routes/products';
+import { ingredientesRouteHandler } from './routes/ingredientes';
 
 export const app = createApp();
 
@@ -32,6 +33,8 @@ export function createApp(): express.Express {
 
     app.get('/categories', categoriesRouteHandler);
     app.get('/categories/:categoryUuid/products', productsRouteHandler);
+
+    app.get('/ingredientes', ingredientesRouteHandler);
 
     return app;
 }
