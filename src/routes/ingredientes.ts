@@ -4,9 +4,9 @@ import { Ingredient } from '../model/Ingredient';
 
 export const ingredientesRouteHandler: RequestHandler = async (req, res, next) => {
     try {
-        const ingredientes = await Ingredient.query().select();
+        const Ingredients = await Ingredient.query().select();
 
-        res.status(200).json(ingredientes.map(cleanupResponse));
+        res.status(200).json(Ingredients.map(cleanupResponse));
     } catch (error) {
         next(error);
     }

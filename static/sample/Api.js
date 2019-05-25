@@ -12,7 +12,7 @@ export class Api {
     }
 
     getIngredientes() {
-        return this._fetchResource(`/ingredientes`);
+        return this._fetchResource(`/Ingredients`);
     }
 
     getCategories() {

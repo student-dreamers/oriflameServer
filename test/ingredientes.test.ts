@@ -1,10 +1,10 @@
 import * as request from 'supertest';
 import { app } from '../src/app';
 
-export default describe('Ingredientes route', () => {
-    it('should get correct ingredientes', () =>
+export default describe('Ingredients route', () => {
+    it('should get correct Ingredients', () =>
         request(app)
-            .get(`/ingredientes`)
+            .get(`/Ingredients`)
             .expect(200)
             .expect(({ body }) => {
                 if (!(body instanceof Array)) throw new Error(`Not Array`);
