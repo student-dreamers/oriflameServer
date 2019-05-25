@@ -19,9 +19,9 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
             res.status(404).send(`Category do not exists.`);
         } else {
             const products = await Product.query()
-                .eager('category')
-                .eager('productIngredients')
-                .eager('productIngredients.ingredient')
+                //.eager('category')
+                //.eager('productIngredients')
+                .eager('[category,productIngredients.ingredient]')
                 .where('category_id', category.id)
                 .select();
 
