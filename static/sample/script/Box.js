@@ -7,7 +7,8 @@ export class Box {
     }
 
     async render() {
-        //this.rootElement.innerHtml = 'Box';
+        this.rootElement.classList.add('box');
+        this.rootElement.innerHtml = 'Loading...';
     }
 
     createElement() {
