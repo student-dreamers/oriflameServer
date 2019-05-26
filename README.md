@@ -1,6 +1,5 @@
-# HackPrague2019
-Project for hackathon HackPrague 
-
+# Oriflame Hackathon 2019
+Project for Oriflame Hackathon 
 ## Server
 ### Environment variables
 - `PORT`
