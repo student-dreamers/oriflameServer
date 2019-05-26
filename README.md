@@ -1,5 +1,5 @@
-# HackPrague2019
-Project for hackathon HackPrague 
+# OrifalmeHacakton
+Project for hackathon Oriflame
 
 ## Server
 ### Environment variables
