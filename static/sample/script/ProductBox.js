@@ -1,18 +1,16 @@
 import { Box } from './Box.js';
 
-async class ProductnBox extends Box{
-
-    constructor(rootElement,product) {
+export class ProductBox extends Box {
+    constructor(rootElement, product) {
         super(rootElement);
         this.product = product;
     }
 
-    render(){
-        this.targetElement.innerHTML = `
+    async render() {
+        this.rootElement.innerHTML = `
             
-            <h1>${product.name}</h1>
+            <h1>${this.product.name}</h1>
         
         `;
     }
-
 }

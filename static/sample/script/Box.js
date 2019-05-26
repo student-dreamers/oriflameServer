@@ -1,12 +1,12 @@
 export class Box {
     constructor(rootElement) {
         this.rootElement = rootElement;
-        setImmediate(() => {
+        requestAnimationFrame(() => {
             this.render();
         });
     }
 
-    render() {
+    async render() {
         //this.rootElement.innerHtml = 'Box';
     }
 

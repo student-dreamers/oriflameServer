@@ -35,14 +35,16 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
             res.status(200).json(
                 products
                     .filter((product: any) => {
+                        if (product.productIngredients.length === 0) return false;
+
                         //todo this should be done by sql query not aplication
                         for (const { ingredient_name } of product.productIngredients) {
                             if ((filterIngredients || []).includes(ingredient_name)) return false;
                         }
                         return true;
                     })
-                    .map(cleanupResponse)
-                    .splice(5),
+                    .slice(0, 5)
+                    .map(cleanupResponse),
             );
         }
     } catch (error) {

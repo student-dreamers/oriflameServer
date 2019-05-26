@@ -25,7 +25,7 @@ export async function countProductScore(product: Product) {
         sum += score * amount;
     }
 
-    return sum;
+    return sum / product.productIngredients.length;
 }
 
 export async function insertProductScore(product: Product) {
