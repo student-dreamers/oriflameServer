@@ -16,9 +16,10 @@ INSERT INTO `data_product` (`id`, `uuid`, `ean`, `category_id`, `name`, `descrip
 (1,	'test',	'test',	1,	'test',	'',	'',	'',	4.00),
 (2,	'test2',	'test2',	1,	'test2',	'',	'',	'',	2.00);
 
-INSERT INTO `influence` (`id`, `name`, `description`) VALUES
-(1,	'Ničí to zvířátka',	'helpppp'),
-(2,	'Ničí to stromečky',	'pomoooooooc');
+INSERT INTO `influence` (`id`, `name`, `description`, `score`) VALUES
+(1,	'Ničí to zvířátka',	'helpppp' , 0.3),
+(2,	'Ničí to stromečky',	'pomoooooooc', 0.4),
+(3,	'Ničí to želvičky',	'wtfffff', 0.7);
 
 INSERT INTO `ingredient` (`name`, `url_icon`, `featured`) VALUES
 ('SUGAR',	NULL,	1),
@@ -33,6 +34,7 @@ INSERT INTO `ingredient_influence` (`ingredient_name`, `influence_id`, `score`) 
 ('SUGAR',	1,	0.500),
 ('SUGAR',	2,	0.500),
 ('SALT',	1,	0.400),
-('SALT',	2,	0.600);
+('SALT',	2,	0.300),
+('SALT',	3,	0.300);
 
 COMMIT;

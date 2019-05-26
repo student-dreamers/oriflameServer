@@ -1,6 +1,7 @@
 import { Category } from './Category';
 import { AbstractModel } from './AbstractModel';
 import { RelationMappings, Model } from 'objection';
+import { Ingredient } from './Ingredient';
 
 export class ProductIngredient extends AbstractModel {
     static tableName = 'data_product_ingredient';
@@ -11,6 +12,9 @@ export class ProductIngredient extends AbstractModel {
     ingredient_name: string;
     amount: number;
     order: number;
+
+    //joined
+    ingredient: Ingredient;
 
     constructor(raw: Partial<ProductIngredient> = {}) {
         super();

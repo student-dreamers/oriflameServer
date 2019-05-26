@@ -1,6 +1,7 @@
 import { Category } from './Category';
 import { AbstractModel } from './AbstractModel';
 import { RelationMappings, Model } from 'objection';
+import { ProductIngredient } from './ProductIngredient';
 
 export class Product extends AbstractModel {
     static tableName = 'data_product';
@@ -15,7 +16,13 @@ export class Product extends AbstractModel {
     url_image: string;
     url_shop: string;
     price: number;
-    score = 1; //todo mock
+
+    //joined
+    category: Category;
+    productIngredients: ProductIngredient[];
+
+    //computed
+    score: number;
 
     constructor(raw: Partial<Product> = {}) {
         super();

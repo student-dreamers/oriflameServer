@@ -1,5 +1,6 @@
-import { AbstractModel } from './../model/AbstractModel';
 import { isNull, isUndefined } from 'util';
+
+//todo cleanup redundant structures
 
 export function cleanupResponse<T>(row: T): Partial<T> {
     return cleanupResponseCore<T>(row, false);
