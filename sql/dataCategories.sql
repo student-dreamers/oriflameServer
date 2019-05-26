@@ -1,0 +1,7 @@
+INSERT INTO data_category (uuid, name, url_icon) values ("49db04e9-e4e3-41b8-9f66-8443472c73dc", "Skin Care", "https://media-asia-cdn.oriflame.com/-/media/Images/Categories/Top-Images/2018/Skincare_Top.ashx?u=0101010000"),
+("64430708-2883-420b-9962-d206396318e8", "Make-Up", "https://media-asia-cdn.oriflame.com/-/media/Images/Categories/Top-Images/2018/Makeup_Top.ashx?u=0101010000"),
+("b4d2beb9-1a4a-4ad4-a6ee-2f29556d1a70","Fragrance","https://media-asia-cdn.oriflame.com/-/media/Images/Product-section/Categories/Category-landing-test-images/FRA_01.ashx?u=1405300604"),
+("17b38743-4a10-45d1-bb9e-def83c7cbc48","Bath & Body","https://media-asia-cdn.oriflame.com/-/media/Images/Categories/Top-Images/2018/BathBody_Top.ashx?u=0101010000"),
+("a9d56d50-5290-4073-b7b3-8a0383798f99", "Accessories","https://media-asia-cdn.oriflame.com/-/media/Images/Product-section/Categories/Category-landing-test-images/ACC_01.ashx?u=1405281452"),
+("38123b78-6ba3-4bff-996f-377911857928","Wellness","https://media-asia-cdn.oriflame.com/-/media/Images/Categories/Top-Images/2018/Wellness_Top.ashx?u=0101010000"),
+("2f4215fe-db05-4264-85bd-170930c5b82f","Men","https://media-asia-cdn.oriflame.com/-/media/Images/Categories/Top-Images/2018/Men_Top.ashx?u=0101010000")

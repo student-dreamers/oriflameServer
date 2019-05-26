@@ -27,3 +27,8 @@ export async function countProductScore(product: Product) {
 
     return sum;
 }
+
+export async function insertProductScore(product: Product) {
+    product.score = await countProductScore(product);
+    return product;
+}

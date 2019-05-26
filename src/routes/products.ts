@@ -3,6 +3,7 @@ import { Category } from './../model/Category';
 import { RequestHandler } from 'express';
 import { TEST_NONEXISTING_UUID } from '../config';
 import { cleanupResponse } from '../utils/cleanupResponse';
+import { countProductScore, insertProductScore } from '../utils/countScore';
 
 export const productsRouteHandler: RequestHandler = async (req, res, next) => {
     try {
@@ -18,14 +19,18 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
         if (!category) {
             res.status(404).send(`Category do not exists.`);
         } else {
-            const products = await Product.query()
-                .eager('[category,productIngredients.ingredient]')
-                .where('category_id', category.id)
-                //.joinRelation('productIngredients')
-                /*.whereNot(function() {
+            const products = (await Promise.all(
+                (await Product.query()
+                    .eager('[category,productIngredients.ingredient]')
+                    .where('category_id', category.id)
+                    //.joinRelation('productIngredients')
+                    /*.whereNot(function() {
                     this.whereIn('productIngredients.ingredient_name', filterIngredients);
                 })*/
-                .select();
+                    //.limit(5)
+
+                    .select()).map((product) => insertProductScore(product)),
+            )).sort((a, b) => (a.score > b.score ? 1 : -1));
 
             res.status(200).json(
                 products
@@ -36,7 +41,8 @@ export const productsRouteHandler: RequestHandler = async (req, res, next) => {
                         }
                         return true;
                     })
-                    .map(cleanupResponse),
+                    .map(cleanupResponse)
+                    .splice(5),
             );
         }
     } catch (error) {
