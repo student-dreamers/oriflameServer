@@ -1,3 +1,5 @@
+# `This app was made on a hackathon and not maintained for a long time. So expect a very pure code quality.`
+
 # Oriflame Hackathon 2019
 Project for Oriflame Hackathon 
 ## Server
